@@ -16,33 +16,29 @@ function PatientList(){
     const patient3 = findPatientById("3");
     const patient4 = findPatientById("4");
     const obj = currID ? findPatientById(currID) : null;
-    
+    const [result, setResult] = useState('');
     const handleClick = (id) => (event) => {
       event.preventDefault();
       setIsFirstDivVisible(!isFirstDivVisible);
       setCurrID(id);
     };
-    const handleImageChange = (event) =>{
-        const file = event.target.files[0];
+    const handleImageUpload = event => {
         setThirdDivVisible(!isThirdDivVisible)
-        if (file) {
-            setselectedPic(file)
-        } else {
-            setselectedPic(null)
-        }
-    }
-    useEffect(() => {
-        if (selectedPic) {
-          // Create a URL for the selected file
-          const url = URL.createObjectURL(selectedPic);
-          setCADPhoto(url);
+        const data = new FormData();
+        data.append('file', event.target.files[0]);
     
-          // Cleanup function to revoke the object URL
-          return () => {
-            URL.revokeObjectURL(url);
-          };
-        }
-      }, [selectedPic]);
+        fetch('http://127.0.0.1:5000/predict', {
+          method: 'POST',
+          body: data,
+        })
+          .then(response => response.json())
+          .then(data => {
+            setResult(data.result);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
     return(
         <div>
               {(isFirstDivVisible && !isThirdDivVisible) && (
@@ -102,7 +98,7 @@ function PatientList(){
                                 </li>
                             </ul>
                         </div>
-                        <input type="file" accept="image/png" id="input-file" onChange={handleImageChange}/>
+                        <input type="file" accept="image/png" id="input-file" onChange={handleImageUpload}/>
                         <label className='button ' htmlFor="input-file">CAD Analyze</label>
                         <div className='Patient-Tab-Subcontainer'>
                             <ul className='list-container'>
@@ -126,14 +122,14 @@ function PatientList(){
             {(!isFirstDivVisible && isThirdDivVisible && (
                 <div className='Results-Container'>
                     <div className='Patient-Tab-Header Results-Header'>
-                        <p>Results for Ryan</p>
+                        <p>Results for {obj.name}</p>
                     </div>
                     <div className='Results'>
                         <div className='P-Info-Tab'>
                             <ul>
                                 <li className='Info-List-Item'>
-                                    Name: Ryan
-                                </li>
+                                    <p>Result: {result}</p>
+                                </li>   
                                 <li className='Info-List-Item'>
                                     Age: 19
                                 </li>
@@ -152,7 +148,7 @@ function PatientList(){
                             </ul>
                         </div>
                         <div className='Image-Info'>
-                            <img className = 'Result-Img'src={ryanImage} alt="Pic" />
+                            <img className = 'Result-Img'src={result} alt="Pic" />
                             <div className='Info-Container'>
                                 <p>Lorem Ipsum</p>
                             </div>
