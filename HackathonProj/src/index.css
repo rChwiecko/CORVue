@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input{
+    display: none;
+}
+
+:root {
+    --primary-color-back: #cbf6f2;
+    --secondary-color-back: #212121;
+    --box-background: white;
+    --tertiary-color-back: black;
+    --font-grey: rgb(53,53,53);
+}
+
+body {
+    font-family: 'Poppins', sans-serif; 
+    background: var(--primary-color-back);
+    color: var(--secondary-color-back);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    color: var(--tertiary-color-back);
+}
+
+/*Transitions */
+
+a, 
+.btn {
+    transition: all 300ms ease;
+}
+
+/*Desktop nav */
+nav, 
+.nav-links {
+    display: flex;
+}
+
+.button {
+    position: relative;
+    bottom: 0; /* Aligns the button to the bottom of the parent div */
+    left: 0; /* Adjust as needed */
+    transition: all 300ms ease;
+    font-weight: 600;
+    transition: all 300ms ease;
+    padding: 1rem;
+    width: 5rem;
+    border-radius: 2rem;
+    background-color: rgb(243, 243, 243);
+    border: 2px solid black; 
+}
+
+
+  .button:hover {
+    cursor:pointer;
+    background-color: var(--primary-color-back);
+  }
+nav {
+    justify-content: space-around;
+    height: 17vh;
+    align-items: center;
+    background-color: #0D544E;
+    box-shadow: 10px 10px;
+    height: 70px;
+    
+}
+
+.nav-links {
+    gap: 4rem;
+    list-style:  none;
+    font-size: 1.5rem;
+}
+
+a {
+    color: var(--tertiary-color-back);
+    text-decoration:  none;
+    text-decoration-color:  var(--primary-color-back);
+}
+
+a:hover{
+    color: var(--font-grey);
+    text-decoration:  underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: var(--tertiary-color-back);
+}
+
+.Patient-item {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    border-bottom: black;
+    gap: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .Patient-Container {
+    padding: 1.5rem;
+    flex: 1; /* This might not be necessary unless the container is within a flex context */
+    background: var(--box-background);
+    border-radius: 3rem;
+    border: var(--font-grey) 0.1rem solid;
+    border-color: var(--tertiary-color-back);
+    text-align: center;
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
+    box-shadow: 10px 10px;
+  }
+  
+  
+  .Header-Text {
+    font-size: x-large;
+  
+  }
+  #List-Header {
+    border-bottom: 2px solid var(--tertiary-color-back); /* Adjust the thickness and color as needed */
+    border-right: 2px solid var(--tertiary-color-back);
+    border-left: 2px solid var(--tertiary-color-back);
+    border-top: 2px solid var(--tertiary-color-back);
+  }
+  
+  .Item-Text{
+    color: black;
+    font-size: x-large;
+  }
+  
+  .Title-Text {
+    font-size: xx-large;
+  }
+
+  .Patient-Tab {
+    padding: 1.5rem;
+    background: var(--box-background);
+    border-radius: 3rem;
+    border: var(--font-grey) 0.1rem solid;
+    border-color: var(--tertiary-color-back);
+    text-align: center;
+    max-width: 100%; /* or any max size */
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Include padding in the box model */
+    
+  }
+  
+
+  .Patient-Tab-Header {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    border-bottom: black;
+    gap: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .Patient-Tab-Header-Text{
+    font-size: x-large;
+  }
+
+  .Patient-Tab-Subcontainer {
+    padding: 1.5rem;
+    flex: 1;
+    background-color: rgb(243, 243, 243);
+    border-radius: 3rem;
+    border: var(--font-grey) 0.1rem solid;
+    border-color: var(--tertiary-color-back);
+    text-align: center;
+    gap: 20px;
+    width: fit-content;
+}
+
+.Patient-Tab-Container-Collection {
+    align-items: center;
+    display: flex;
+    grid-template-columns: 1fr 1fr; /* Creates two columns, each taking half the space */
+    justify-content: center;
+    gap: 50px;
+  }
+  
+  .list-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the right */
+    margin-left: 10px;
+}
+
+.Results-Container {
+    padding: 1.5rem;
+    flex: 1; /* This might not be necessary unless the container is within a flex context */
+    background: var(--box-background);
+    border-radius: 3rem;
+    border: var(--font-grey) 0.1rem solid;
+    border-color: var(--tertiary-color-back);
+    text-align: center;
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
+    box-shadow: 10px 10px;
+    margin-top: 30px;
+}
+
+.P-Info-Tab {
+    padding: 1.5rem;
+    flex: 1;
+    background-color: rgb(243, 243, 243);
+    border-radius: 3rem;
+    border: var(--font-grey) 0.1rem solid;
+    border-color: var(--tertiary-color-back);
+    text-align: center;
+    gap: 20px;
+    width: fit-content;
+}
+
+.Info-List-Item {
+    margin-bottom: 10px;
+}
+.Results{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Results-Header{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    font-size: x-large;
+    border-bottom: #212121 0.1rem solid;
+}
+
+
+.Image-Info{
+    position: relative;
+    width: 40%;
+}
+
+.Result-Img {
+    position: relative;
+    width: 40%;
+    top: 0;
+}
+
+.Info-Container{
+    border: black 0.1rem solid;
+    border-radius: 3rem;
+    position: relative;
+    height: 20%;
+    background-color: rgb(243, 243, 243)
+}
+
+.Regression-Info {
+    border: black 0.1rem solid;
+    border-radius: 3rem;
+    Position: relative;
+    width: 30%;
+}
