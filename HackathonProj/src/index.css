@@ -196,7 +196,8 @@ a:hover{
     border-color: var(--tertiary-color-back);
     text-align: center;
     gap: 20px;
-    width: fit-content;
+    position: relative;
+    width: 50%;
 }
 
 .Patient-Tab-Container-Collection {

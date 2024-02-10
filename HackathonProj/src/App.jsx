@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PatientList from './PaitentList';
+import PatientList from './PatientList.jsx';
 import Navbar from './Navbar';
 
 function App() {
