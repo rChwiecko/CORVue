@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from flask_cors import CORS  # Make sure you've installed flask-cors
@@ -8,7 +8,7 @@ import io
 app = Flask(__name__)
 CORS(app)  # Enable CORS
 
-MODEL_PATH = '/Users/alexdang/Desktop/lebron_james_suu/cad_cnn_model_v7.h5'
+MODEL_PATH = '/Users/alexdang/CORVue-2/HackathonProj/src/Model/cad_cnn_model_v7.h5'
 model = load_model(MODEL_PATH)
 
 @app.route('/predict', methods=['POST'])
