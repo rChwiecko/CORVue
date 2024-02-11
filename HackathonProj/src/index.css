@@ -10,7 +10,7 @@ input{
 }
 
 :root {
-    --primary-color-back: #cbf6f2;
+    --primary-color-back: #222f36;
     --secondary-color-back: #212121;
     --box-background: white;
     --tertiary-color-back: black;
@@ -67,10 +67,19 @@ nav {
     justify-content: space-around;
     height: 17vh;
     align-items: center;
-    background-color: #0D544E;
-    box-shadow: 10px 10px;
-    height: 70px;
+    background-color: #091a23;
+    height: 80px;
     
+}
+nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0; /* Align to the bottom of the navbar */
+  height: 120px; /* Height of the gradient effect */
+  background: linear-gradient(to bottom, rgb(66, 69, 105), rgba(8, 46, 80, 0));
+  z-index: -1; /* Place it under the content */
 }
 
 .nav-links {
@@ -141,7 +150,7 @@ a:hover{
   }
   
   .Title-Text {
-    font-size: xx-large;
+    font-size: 45px;
     color: white;
   }
 
@@ -230,7 +239,6 @@ a:hover{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Center the container */
-    box-shadow: 10px 10px;
     margin-top: 30px;
 }
 

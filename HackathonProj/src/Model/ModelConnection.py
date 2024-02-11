@@ -1,14 +1,16 @@
 from flask import Flask, request, jsonify
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-from flask_cors import CORS  # Make sure you've installed flask-cors
+from flask_cors import CORS
 import numpy as np
 import io
+import base64
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS
 
-MODEL_PATH = '/Users/alexdang/CORVue-2/HackathonProj/src/Model/cad_cnn_model_v7.h5'
+MODEL_PATH = '/Users/alexdang/CORVue/HackathonProj/src/Model/cad_cnn_model_v7.h5'
 model = load_model(MODEL_PATH)
 
 @app.route('/predict', methods=['POST'])
@@ -35,7 +37,13 @@ def predict():
         prediction = model.predict(img_array)
         result = 'Positive' if prediction[0][0] >= 0.5 else 'Negative'
         
-        return jsonify({'result': result})
+        # Convert the image to JPEG/PNG and encode to base64
+        img.seek(0)  # Reset the file pointer to the beginning of the image file
+        buffered = io.BytesIO()
+        img.save(buffered, format="JPEG")  # Or "PNG", depending on your needs
+        img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+        
+        return jsonify({'result': result, 'image': img_str})
 
 if __name__ == '__main__':
     app.run(debug=True)

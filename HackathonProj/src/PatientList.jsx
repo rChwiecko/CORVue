@@ -23,7 +23,7 @@ function PatientList(){
       setCurrID(id);
     };
     const handleImageUpload = event => {
-        setThirdDivVisible(!isThirdDivVisible)
+        setThirdDivVisible(!isThirdDivVisible);
         const data = new FormData();
         data.append('file', event.target.files[0]);
     
@@ -33,12 +33,13 @@ function PatientList(){
         })
           .then(response => response.json())
           .then(data => {
-            setResult(data.result);
+            setResult(data.result); // Assuming this sets the text result of the prediction
+            setCADPhoto(`data:image/jpeg;base64,${data.image}`); // Set the image data as base64
           })
           .catch(error => {
             console.error(error);
           });
-      };
+    };
     return(
         <div>
               {(isFirstDivVisible && !isThirdDivVisible) && (
@@ -126,8 +127,9 @@ function PatientList(){
                     </div>
                     <div className='Results'>
                         <div className='P-Info-Tab'>
+                            <div className="Results">
                             <ul>
-                                <li className='Info-List-Item'>
+                            <li className='Info-List-Item'>
                                     <p>Name: {obj.name}</p>
                                 </li>   
                                 <li className='Info-List-Item'>
@@ -143,9 +145,12 @@ function PatientList(){
                                     DOB: {obj.dob}
                                 </li>
                             </ul>
+                            </div>
+                            
+ 
                         </div>
                         <div className='Image-Info'>
-                            <img className = 'Result-Img'src={result} alt="Pic" />
+                            {CADPhoto && <img className='Result-Img' src={CADPhoto} alt="CAD Result" />}
                             <div className='Info-Container'>
                                 <p>Patient {obj.name} tested {result} for CAD</p>
                             </div>
