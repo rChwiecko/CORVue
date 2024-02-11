@@ -28,17 +28,18 @@ function PatientList(){
         data.append('file', event.target.files[0]);
     
         fetch('http://127.0.0.1:5000/predict', {
-          method: 'POST',
-          body: data,
+            method: 'POST',
+            body: data,
         })
-          .then(response => response.json())
-          .then(data => {
-            setResult(data.result); // Assuming this sets the text result of the prediction
-            setCADPhoto(`data:image/jpeg;base64,${data.image}`); // Set the image data as base64
-          })
-          .catch(error => {
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Log the data here to inspect what the server responded with
+            setResult(data.result);
+            setCADPhoto(`data:image/jpeg;base64,${data.image}`);
+        })
+        .catch(error => {
             console.error(error);
-          });
+        });
     };
     return(
         <div>
@@ -150,7 +151,7 @@ function PatientList(){
                 </div>
                 <div className='Patient-Result-Info-Container'>
                     <div className='Patient-Result-Info'>
-                        <p>Patient John Doe tested Positive for CAD</p>
+                        <p>Patient {obj.name} tested {result} for CAD</p>
                     </div>
                 </div>
                 <h1 className="Start-Button" onClick={()=>{setIsFirstDivVisible(true)

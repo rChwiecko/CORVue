@@ -10,7 +10,7 @@ import base64
 app = Flask(__name__)
 CORS(app)  # Enable CORS
 
-MODEL_PATH = r'\Users\sauce\CORVue-3\HackathonProj\src\Model\cad_cnn_model_v7.h5'
+MODEL_PATH = "/Users/alexdang/CORVue-3/HackathonProj/src/Model/cad_cnn_model_v7.h5"
 model = load_model(MODEL_PATH)
 
 @app.route('/predict', methods=['POST'])
@@ -35,12 +35,13 @@ def predict():
         
         # Make prediction
         prediction = model.predict(img_array)
+      
         result = 'Positive' if prediction[0][0] >= 0.5 else 'Negative'
-        
+     
         # Convert the image to JPEG/PNG and encode to base64
         img.seek(0)  # Reset the file pointer to the beginning of the image file
         buffered = io.BytesIO()
-        img.save(buffered, format="JPEG")  # Or "PNG", depending on your needs
+        img.save(buffered, format="PNG")  # Or "PNG", depending on your needs
         img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
         
         return jsonify({'result': result, 'image': img_str})
