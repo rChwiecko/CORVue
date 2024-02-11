@@ -62,6 +62,8 @@ nav,
   .button:hover {
     cursor:pointer;
     background-color: var(--primary-color-back);
+    color: white;
+    border: 2px solid white;
   }
 nav {
     justify-content: space-around;
@@ -156,6 +158,10 @@ a:hover{
   
   .Title-Text {
     font-size: 45px;
+    color: white;
+  }
+  .Start-Text{
+    font-size: 60px;
     color: white;
   }
 
@@ -416,4 +422,89 @@ a:hover{
   justify-content: center; 
   display: flex;
   align-items: center;
+}
+
+.Patient-List-Header{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+
+.gradient-div {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #f0f0f0; /* Your div's background */
+  border-radius: 10px; /* Optional: for rounded corners */
+  margin: 50px; /* Space around the div for visFibility of the gradient */
+  overflow: hidden; /* Ensures the pseudo-element does not extend outside */
+}
+
+.gradient-div::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  right: -100px;
+  bottom: -100px;
+  background: radial-gradient(circle at center, #ffffff 0%, transparent 80%);
+  border-radius: 50%; /* Ensures the gradient is perfectly circular */
+}
+
+.Start-Div{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh;
+  flex-direction: column;
+}
+.animated-tag {
+  position: relative;
+  padding: 40px;
+  margin: 60px; /* Ensure enough space around the div for the gradient to be visible */
+  display: inline-block;
+  color: #FFF;
+   /* Text color */
+  /* No background-color here to keep the div background transparent */
+}
+
+.animated-tag::before {
+  content: "";
+  position: absolute;
+  top: -50px; left: -50px;
+  right: -50px; bottom: -50px;
+  z-index: -1;
+  background: radial-gradient(circle, #000000 20%, transparent 80%);
+  border-radius: 50%;
+  animation: pulsate 3s infinite ease-in-out;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    top: -50px; left: -50px;
+    right: -50px; bottom: -50px;
+    background-size: 100% 100%;
+  }
+  50% {
+    top: -60px; left: -60px;
+    right: -60px; bottom: -60px;
+    background-size: 120% 120%;
+  }
+}
+
+/* Ensures the text stays on top and is not affected by the pseudo-element */
+.animated-tag::after {
+  content: attr(data-text); /* Use the data-text attribute of the div for the text */
+  position: relative;
+  display: block;
+  z-index: 2;
+  color: inherit; /* Inherits the text color from the .animated-tag */
+}
+
+.Text{
+  color: White;
+}
+
+.Start-Button:hover{
+  cursor: pointer;
 }

@@ -44,6 +44,9 @@ function PatientList(){
         <div>
               {(isFirstDivVisible && !isThirdDivVisible) && (
                 <div className='Patient-Container Div-Boxes'>
+                    <div className='Patient-List-Header Patient-Tab-Header-Text'>
+                        <p>Patient List</p>
+                    </div>
                     <ul>
                         <li id="List-Header" className='Patient-item List-Header'>
                             <p className='Header-Text'>Name</p>
@@ -150,6 +153,9 @@ function PatientList(){
                         <p>Patient John Doe tested Positive for CAD</p>
                     </div>
                 </div>
+                <h1 className="Start-Button" onClick={()=>{setIsFirstDivVisible(true)
+                    setThirdDivVisible(false)
+                }}>Home</h1>
             </div>
             )}
         </div>

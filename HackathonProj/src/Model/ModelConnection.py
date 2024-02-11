@@ -10,7 +10,7 @@ import base64
 app = Flask(__name__)
 CORS(app)  # Enable CORS
 
-MODEL_PATH = r'/Users/alexdang/CORVue-1/HackathonProj/src/Model/cad_cnn_model_v7.h5'
+MODEL_PATH = r'\Users\sauce\CORVue-3\HackathonProj\src\Model\cad_cnn_model_v7.h5'
 model = load_model(MODEL_PATH)
 
 @app.route('/predict', methods=['POST'])
