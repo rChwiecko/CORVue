@@ -142,6 +142,7 @@ a:hover{
   
   .Title-Text {
     font-size: xx-large;
+    color: white;
   }
 
   .Patient-Tab {
@@ -287,4 +288,9 @@ a:hover{
     border-radius: 3rem;
     Position: relative;
     width: 30%;
+}
+
+.Graph {
+  position:relative;
+  width: 100%;
 }

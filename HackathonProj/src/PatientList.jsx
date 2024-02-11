@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
-import ryanImage from './assets/Ryan.jpg'
 import patientData from './Data/PatientData.json'
+import GetGraph from './GetGraph';
 function findPatientById(patientId) {
     return patientData.patients.find((patient) => patient.id === patientId.toString());
   }
@@ -128,37 +128,50 @@ function PatientList(){
                         <div className='P-Info-Tab'>
                             <ul>
                                 <li className='Info-List-Item'>
-                                    <p>Result: {result}</p>
+                                    <p>Name: {obj.name}</p>
                                 </li>   
                                 <li className='Info-List-Item'>
-                                    Age: 19
+                                    Age: {obj.age}
                                 </li>
                                 <li className='Info-List-Item'>
-                                    other: yada
+                                    Height: {obj.height}
                                 </li>
                                 <li className='Info-List-Item'>
-                                    other: yada
+                                    Weight: {obj.weight}
                                 </li>
                                 <li className='Info-List-Item'>
-                                    other: yada
-                                </li>
-                                <li className='Info-List-Item'>
-                                    other: yada
+                                    DOB: {obj.dob}
                                 </li>
                             </ul>
                         </div>
                         <div className='Image-Info'>
                             <img className = 'Result-Img'src={result} alt="Pic" />
                             <div className='Info-Container'>
-                                <p>Lorem Ipsum</p>
+                                <p>Patient {obj.name} tested {result} for CAD</p>
+                            </div>
+                            <div className='Graph'>
+                                <GetGraph id={obj.id}/>
                             </div>
                         </div>
-                        <div className='Regression'>
-                            <div className='P-Info-Tab'>
-                                <p>Lorem</p>
-                            </div>
-                            <div className='P-Info-Tab Regression-Additional'>
-                                <p>Lorem</p>
+                        <div className='P-Info-Tab'>
+                            <div className='Results'>
+                                <ul>
+                                    <li className='Info-List-Item'>
+                                        <p>ID: {obj.id}</p>
+                                    </li>   
+                                    <li className='Info-List-Item'>
+                                       <p>BF%: {obj['bf%']}</p>
+                                    </li>
+                                    <li className='Info-List-Item'>
+                                        <p>BP: {obj.bp}</p>
+                                    </li>
+                                    <li className='Info-List-Item'>
+                                        <p>HR: {obj.hr}</p>
+                                    </li>
+                                    <li className='Info-List-Item'>
+                                        <p>SPO2: {obj.spo2}</p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
