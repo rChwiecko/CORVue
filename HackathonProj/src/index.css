@@ -82,6 +82,11 @@ nav::after {
   z-index: -1; /* Place it under the content */
 }
 
+.Div-Boxes {
+  background: linear-gradient(45deg, #f06, #aaf); /* Adjust the colors and angle as needed */
+  padding: 20px;
+  background-color: white;
+}
 .nav-links {
     gap: 4rem;
     list-style:  none;
@@ -244,6 +249,7 @@ a:hover{
 
 .P-Info-Tab {
     padding: 1.5rem;
+    position: relative;
     flex: 1;
     background-color: rgb(243, 243, 243);
     border-radius: 3rem;
@@ -251,12 +257,15 @@ a:hover{
     border-color: var(--tertiary-color-back);
     text-align: center;
     gap: 20px;
-    width: fit-content;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 0;
+    margin-bottom: 15px;    
+    left: 15% auto;
 }
 
-.Info-List-Item {
-    margin-bottom: 10px;
-}
 .Results{
     display: flex;
     justify-content: center;
@@ -301,4 +310,27 @@ a:hover{
 .Graph {
   position:relative;
   width: 100%;
+}
+
+.Image-Container {
+  display: flex;
+  flex-direction: row; 
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.Picture-Block {
+  position: relative;
+  height: 600px;
+}
+
+.Info-List-Item{
+  margin-bottom: 0%;
+}
+
+.Main-Body {
+  padding-bottom: 40px;
+  justify-content: center; 
+  display: flex;
+  align-items: center;
 }

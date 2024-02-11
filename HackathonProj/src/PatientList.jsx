@@ -43,7 +43,7 @@ function PatientList(){
     return(
         <div>
               {(isFirstDivVisible && !isThirdDivVisible) && (
-                <div className='Patient-Container'>
+                <div className='Patient-Container Div-Boxes'>
                     <ul>
                         <li id="List-Header" className='Patient-item List-Header'>
                             <p className='Header-Text'>Name</p>
@@ -76,7 +76,7 @@ function PatientList(){
             )}
 
             {(!isFirstDivVisible && !isThirdDivVisible) && (
-                <div className='Patient-Tab'>
+                <div className='Patient-Tab Div-Boxes'>
                     <div className='Patient-Tab-Header Patient-Tab-Header-Text'>
                         <a onClick={handleClick(null)}>Back</a>
                         <p>{obj.name}</p>
@@ -121,51 +121,30 @@ function PatientList(){
                 </div>
             )}
             {(!isFirstDivVisible && isThirdDivVisible && (
-                <div className='Results-Container'>
+                <div className='Results-Container Div-Boxes'>
                     <div className='Patient-Tab-Header Results-Header'>
                         <p>Results for {obj.name}</p>
                     </div>
-                    <div className='Results'>
-                        <div className='P-Info-Tab'>
-                            <div className="Results">
-                            <ul>
-                            <li className='Info-List-Item'>
-                                    <p>Name: {obj.name}</p>
-                                </li>   
-                                <li className='Info-List-Item'>
-                                    Age: {obj.age}
-                                </li>
-                                <li className='Info-List-Item'>
-                                    Height: {obj.height}
-                                </li>
-                                <li className='Info-List-Item'>
-                                    Weight: {obj.weight}
-                                </li>
-                                <li className='Info-List-Item'>
-                                    DOB: {obj.dob}
-                                </li>
-                            </ul>
-                            </div>
-                            
- 
-                        </div>
-                        <div className='Image-Info'>
-                            {CADPhoto && <img className='Result-Img' src={CADPhoto} alt="CAD Result" />}
-                            <div className='Info-Container'>
-                                <p>Patient {obj.name} tested {result} for CAD</p>
-                            </div>
-                            <div className='Graph'>
-                                <GetGraph id={obj.id}/>
-                            </div>
-                        </div>
-                        <div className='P-Info-Tab'>
-                            <div className='Results'>
-                                <ul>
+                        <div className='Main-Body'>
+                            <div className='Picture-Block'>
+                                <div className='P-Info-Tab'> 
+                                    <li className='Info-List-Item'>
+                                        Age: {obj.age}
+                                    </li>
+                                    <li className='Info-List-Item'>
+                                        Height: {obj.height}
+                                    </li>
+                                    <li className='Info-List-Item'>
+                                        Weight: {obj.weight}
+                                    </li>
+                                    <li className='Info-List-Item'>
+                                        DOB: {obj.dob}
+                                    </li>
                                     <li className='Info-List-Item'>
                                         <p>ID: {obj.id}</p>
                                     </li>   
                                     <li className='Info-List-Item'>
-                                       <p>BF%: {obj['bf%']}</p>
+                                        <p>BF%: {obj['bf%']}</p>
                                     </li>
                                     <li className='Info-List-Item'>
                                         <p>BP: {obj.bp}</p>
@@ -176,7 +155,20 @@ function PatientList(){
                                     <li className='Info-List-Item'>
                                         <p>SPO2: {obj.spo2}</p>
                                     </li>
-                                </ul>
+                                </div>
+                                <div className='Image-Container'>
+                                    <div>
+                                        <div className='Graph'>
+                                            <GetGraph id={obj.id}/>
+                                        </div>
+                                    </div>
+                                <div/>
+                                <div>
+                                    {CADPhoto && <img className='Result-Img' src={CADPhoto} alt="CAD Result" />}
+                                    <div className='Info-Container'>
+                                        <p>Patient {obj.name} tested {result} for CAD</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
