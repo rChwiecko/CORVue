@@ -120,60 +120,38 @@ function PatientList(){
                     </div>
                 </div>
             )}
-            {(!isFirstDivVisible && isThirdDivVisible && (
+            {(!isFirstDivVisible && isThirdDivVisible) && (
                 <div className='Results-Container Div-Boxes'>
-                    <div className='Patient-Tab-Header Results-Header'>
-                        <p>Results for {obj.name}</p>
-                    </div>
-                        <div className='Main-Body'>
-                            <div className='Picture-Block'>
-                                <div className='P-Info-Tab'> 
-                                    <li className='Info-List-Item'>
-                                        Age: {obj.age}
-                                    </li>
-                                    <li className='Info-List-Item'>
-                                        Height: {obj.height}
-                                    </li>
-                                    <li className='Info-List-Item'>
-                                        Weight: {obj.weight}
-                                    </li>
-                                    <li className='Info-List-Item'>
-                                        DOB: {obj.dob}
-                                    </li>
-                                    <li className='Info-List-Item'>
-                                        <p>ID: {obj.id}</p>
-                                    </li>   
-                                    <li className='Info-List-Item'>
-                                        <p>BF%: {obj['bf%']}</p>
-                                    </li>
-                                    <li className='Info-List-Item'>
-                                        <p>BP: {obj.bp}</p>
-                                    </li>
-                                    <li className='Info-List-Item'>
-                                        <p>HR: {obj.hr}</p>
-                                    </li>
-                                    <li className='Info-List-Item'>
-                                        <p>SPO2: {obj.spo2}</p>
-                                    </li>
-                                </div>
-                                <div className='Image-Container'>
-                                    <div>
-                                        <div className='Graph'>
-                                            <GetGraph id={obj.id}/>
-                                        </div>
-                                    </div>
-                                <div/>
-                                <div>
-                                    {CADPhoto && <img className='Result-Img' src={CADPhoto} alt="CAD Result" />}
-                                    <div className='Info-Container'>
-                                        <p>Patient {obj.name} tested {result} for CAD</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div className='Patient-Health-Bar-Container'>
+                    <div className='Patient-Health-Bar'>
+                        {/* Patient health info here */}
+                        
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>Age:</span> 35</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>Height:</span> 74</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>Weight:</span> 180</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>DOB:</span> 1989-05-15</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>ID:</span> 1</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>BF%:</span> 18</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>BP:</span> 120/80</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>HR:</span> 72</span>
+                        <span className='Health-Bar-Text'><span className='Health-Bar-Label'>SPO2:</span> 98</span>
                     </div>
                 </div>
-            ))}
+                <div className='Results-Main-Body'>
+                    <div className='CT-Scan-Container'>
+                        {CADPhoto && <img className='CT-Scan-Image' src={CADPhoto} alt="CT Scan" />}
+                    </div>
+                    <div className='Graph-Container'>
+                        <GetGraph id={obj.id}/>
+                    </div>
+                </div>
+                <div className='Patient-Result-Info-Container'>
+                    <div className='Patient-Result-Info'>
+                        <p>Patient John Doe tested Positive for CAD</p>
+                    </div>
+                </div>
+            </div>
+            )}
         </div>
     )
 }

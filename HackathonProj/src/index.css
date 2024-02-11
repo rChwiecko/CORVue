@@ -231,22 +231,105 @@ a:hover{
 }
 
 .Results-Container {
-    padding: 1.5rem;
-    flex: 1; /* This might not be necessary unless the container is within a flex context */
-    background: var(--box-background);
-    border-radius: 3rem;
-    border: var(--font-grey) 0.1rem solid;
-    border-color: var(--tertiary-color-back);
-    text-align: center;
-    width: 70%;
-    height: 70%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the container */
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--box-background);
+  padding: 20px;
+  width: 70%; /* Adjust width as needed */
+  margin: 20px auto; /* This centers the container */
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  transform: translateY(9%);
+  position: relative;
 }
 
+.Patient-Health-Bar-Container {
+  position: absolute; /* Position it absolutely within the results container */
+  top: -30px; /* Adjust as needed to move it outside the container */
+  left: 0;
+  right: 0;
+}
+
+.Patient-Health-Bar, .Patient-Result-Info {
+  text-align: center;
+}
+/* Add some styling to the patient health bar for better visibility */
+.Patient-Health-Bar {
+ 
+  display: flex;
+  justify-content: space-evenly; /* This will distribute the space evenly */
+  flex-wrap: wrap; /* This will disperse the items evenly */
+  align-items: center; /* Centers items vertically */
+  padding: 10px;
+  margin: 10px 0;
+  background: #e8f4fd; /* A light blue background or any color you prefer */
+  border: 1px solid #d1e9ff; /* A lighter border to not make it too prominent */
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px; /* Space between the health bar and the images */
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1); /* Optional */
+}
+.Health-Bar-Label {
+  font-weight: bold; /* Makes the label bold */
+  margin-right: 5px; /* Adds some space after the label */
+}
+/* Style for the text inside the health bar to make it easier to read */
+.Health-Bar-Text {
+  margin: 0 10px;
+  font-size: 25px; /* Adjust the font size as needed */
+  color: #333; /* A darker font color for better readability */
+  /* Add other styles like font-weight as needed */
+  display: flex;
+  flex-wrap: wrap; /* Wraps content to the next line if not enough space */
+  justify-content: space-around; /* Distributes space evenly around the items */
+}
+/* Ensure the results text is clearly visible */
+.Patient-Result-Info {
+  
+  background: #f7faff; /* Another subtle background color */
+  border: 1px solid #e1d9ff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px; /* Space between the images and the result text */
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1); /* Optional */
+  font-size: 25px; /* Slightly larger font size for the results */
+}
+
+.Results-Main-Body {
+  display: flex;
+  margin-top: 45px; 
+  justify-content: space-between; /* Add space between the CT scan and the graph */
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.CT-Scan-Container {
+  flex: 0 0 40%; /* Adjust the flex-basis to 40% and prevent it from growing */
+  max-width: 40%; /* You can also set a max-width if needed */
+  /* other styles */
+}
+
+/* Ensure the graph is centered vertically */
+.Graph-Container {
+  flex: 0 0 60%; /* Adjust the flex-basis to 60% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* This will center the graph vertically */
+  /* other styles */
+}
+
+.CT-Scan-Image {
+  width: 100%; /* Full width of the container */
+  height: auto;
+  /* Rest of your styles */
+}
+
+.Patient-Result-Info-Container {
+  text-align: center;
+  /* Rest of your styles */
+}
 .P-Info-Tab {
     padding: 1.5rem;
     position: relative;
